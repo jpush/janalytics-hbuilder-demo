@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6212362C2090AA710096A761 /* JAnalyticsConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6212362B2090AA710096A761 /* JAnalyticsConfig.plist */; };
 		627C031920905D85001A9CAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 627C031820905D85001A9CAB /* AppDelegate.m */; };
 		627C031C20905D86001A9CAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 627C031B20905D86001A9CAB /* ViewController.m */; };
 		627C031F20905D86001A9CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 627C031D20905D86001A9CAB /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6212362B2090AA710096A761 /* JAnalyticsConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = JAnalyticsConfig.plist; sourceTree = "<group>"; };
 		627C031420905D85001A9CAB /* JanalyticsHbuilderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JanalyticsHbuilderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		627C031720905D85001A9CAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		627C031820905D85001A9CAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				627C03BD20906F6F001A9CAB /* JANALYTICSService.h */,
 				627C03BE20906F6F001A9CAB /* janalytics-ios-1.2.1.a */,
 				627C03C020906F6F001A9CAB /* JANALYTICSEventObject.h */,
+				6212362B2090AA710096A761 /* JAnalyticsConfig.plist */,
 			);
 			path = JAnalytics_Plugin;
 			sourceTree = SOURCE_ROOT;
@@ -480,6 +483,7 @@
 				627C03A020906336001A9CAB /* Default-Portrait~ipad.png in Resources */,
 				627C03AA20906336001A9CAB /* Default-Portrait7@2x~ipad.png in Resources */,
 				627C03A620906336001A9CAB /* Default-Portrait7~ipad.png in Resources */,
+				6212362C2090AA710096A761 /* JAnalyticsConfig.plist in Resources */,
 				627C031F20905D86001A9CAB /* Main.storyboard in Resources */,
 				627C03AC20906336001A9CAB /* Default-667h@2x.png in Resources */,
 				627C03A720906336001A9CAB /* Default-568h@2x.png in Resources */,

@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>JAnalytics</key>
+	<dict>
+		<key>autostart</key>
+		<true/>
+		<key>global</key>
+		<true/>
+		<key>class</key>
+		<string>JAnalyticsPlugin</string>
+	</dict>
 	<key>Geolocation</key>
 	<dict>
 		<key>class</key>

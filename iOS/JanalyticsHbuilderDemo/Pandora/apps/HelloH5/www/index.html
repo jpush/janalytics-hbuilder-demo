@@ -8,6 +8,7 @@
 		<meta name="MobileOptimized" content="320"/>
 		<title>Hello H5+</title>
 		<script type="text/javascript" src="js/update.js"></script>
+    <script type="text/javascript" src="js/janalytics.js"></script>
 		<script type="text/javascript" charset="utf-8">
 //取消浏览器的所有事件，使得active的样式在手机上正常生效
 document.addEventListener('touchstart',function(){
@@ -74,17 +75,17 @@ var _openw=null;
  * @param {Object} s	是否不显示窗口
  */
 function clicked(id,a,s){
-	// Console.log('fafdsafasdfsadfa');
-	console.log('fafdsafasdfsadfa');
-	alert('fadfasf');
+	
+	
+	// alert('fadfasf');
 	if(_openw){return;}
-	// a||(a=as);
-	// _openw=preate[id];
+	a||(a=as);
+	_openw=preate[id];
 	if(_openw){
-	// 	_openw.showded=true;
-	// 	_openw.show(a,null,function(){
-	// 		_openw=null;//避免快速点击打开多个页面
-	// 	});
+		_openw.showded=true;
+		_openw.show(a,null,function(){
+			_openw=null;//避免快速点击打开多个页面
+		});
 	}else{
 //		var wa=plus.nativeUI.showWaiting();
 //		_openw=plus.webview.create(id,id,{scrollIndicator:'none',scalable:false,popGesture:'hide'},{preate:true});//复用二级页面
@@ -175,9 +176,9 @@ li:active {
 		</header>
 		<div id="content" class="content">
 		<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;">
-			<li id="plus/accelerometer.html" onclick="clicked(this.id)">
-				<span class="item">Accelerometer
-					<div class="chs">加速度传感器</div>
+			<li id="plus/JAnalytics.html" onclick="clicked(this.id)">
+				<span class="item">JAnalytics
+					<div class="chs">极光统计</div>
 				</span>
 			</li>
 		</ul>
