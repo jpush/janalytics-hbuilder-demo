@@ -26,7 +26,7 @@ plus.JAnalytics.init()
 
 参数：
 
-- pageName： string
+- pageName (string)： 页面名字
 
 example：
 
@@ -42,7 +42,7 @@ plus.JAnalytics.startLogPageView({pageName: "HBuilder page naem"})
 
 参数：
 
-- pageName： string
+- pageName (string)： 页面名字
 
 example：
 
@@ -58,8 +58,8 @@ plus.JAnalytics.stopLogPageView({pageName: "HBuilder page naem"})
 
 参数：
 
-- latitude：number
-- longitude： number
+- latitude (number)： 纬度
+- longitude (number)：  经度
 
 example：
 
@@ -85,6 +85,10 @@ plus.JAnalytics.crashLogON()
 
 设置是否打印sdk产生的Debug级log信息, 默认为NO(不打印log)
 
+参数：
+
+​	- enable (true)
+
 ```
 plus.JAnalytics.setDebug({enable: true})
 ```
@@ -95,10 +99,9 @@ plus.JAnalytics.setDebug({enable: true})
 
 上报事件
 
-参数：
+@param {object} event 可以为如下 5 种事件：
 
      * 除了 extra 其他都是必填
-     * @param {object} event 可以为如下 5 种事件
      * 
      * loginEvent = {
      *  type: 'login',  // 必填
