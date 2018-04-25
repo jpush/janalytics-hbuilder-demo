@@ -36,13 +36,9 @@ document.addEventListener('plusready', function () {
 
        /**
      * 初始化插件
-     * 
-     * @param {object} params = {
-     *  appKey: String       //极光控制台上注册的应用 appKey
-     * }
      */
-    setup: function (params) {
-      this.callNative('setup', [params], null)
+    init: function () {
+      this.callNative('init', null, null)
       
   },
     
@@ -85,7 +81,7 @@ document.addEventListener('plusready', function () {
      * 开启Crash日志收集，默认是关闭状态.
      */
     crashLogON: function() {
-      this.callNative('crashLogON', [params], null)
+      this.callNative('crashLogON', null, null)
     },
 
     /**

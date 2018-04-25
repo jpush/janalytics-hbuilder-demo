@@ -6,6 +6,10 @@
 
 - 在 [JAnalytics_Plugin/JAnalyticsConfig.plist](./iOS/JAnalytics_Plugin/JAnalyticsConfig.plist) 中配置 APP_KEY。
 
+- 将 [janalytics.js](./janalytics.js) 复制到 Pandora/apps/HelloH5/www/js/ 目录中。
+
+- 在需要用到统计的地方导入 janalytics.js 文件。
+
 - 配置 feature.plist ，在 Xcode 中打开 ../PandoraApi.bundle/ 目录下的 feature.plist ，为插件添加新的 item：
 
   ![屏幕快照 2018-04-25 下午9.51.01](./docs/feature.png)
