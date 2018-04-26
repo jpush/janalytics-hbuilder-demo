@@ -195,7 +195,7 @@ plus.JAnalytics.identifyAccount({
   accountID: 'huminios',
   creationTime: 86400,
   sex: 'female',
-  birthdate: 19950116,
+  birthdate: '19950116',
   paid: 'unpaid',
   phone: '13612983333',
   email: '13612983333@qq.com',

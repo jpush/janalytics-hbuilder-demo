@@ -311,11 +311,11 @@ static NSString *const kJAnalyticsIsProduction =  @"isProduction";
     userInfo.creationTime = creationTime.doubleValue;
   }
 
-  // crash
-//  if (param[@"birthdate"]) {
-//    NSString *birthdate = param[@"birthdate"];
-//    userInfo.birthdate = birthdate;
-//  }
+  
+  if (param[@"birthdate"]) {
+    NSString *birthdate = param[@"birthdate"];
+    userInfo.birthdate = birthdate;
+  }
 
   if (param[@"sex"]) {
     if ([param[@"sex"] isEqualToString:@"male"]) {
