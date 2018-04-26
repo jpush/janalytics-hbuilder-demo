@@ -4,5 +4,11 @@
 <dict>
 	<key>APP_KEY</key>
 	<string>a1703c14b186a68a66ef86c1</string>
+	<key>channel</key>
+	<string>channel</string>
+	<key>advertisingId</key>
+	<string></string>
+	<key>isProduction</key>
+	<true/>
 </dict>
 </plist>

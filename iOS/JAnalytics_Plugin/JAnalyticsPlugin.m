@@ -11,7 +11,10 @@
 #import "JANALYTICSService.h"
 #import "JANALYTICSEventObject.h"
 
-static NSString *const kJPushAppKey = @"APP_KEY";
+static NSString *const kJAnalyticsAppKey = @"APP_KEY";
+static NSString *const kJAnalyticsChannel = @"channel";
+static NSString *const kJAnalyticsAdvertisingId =  @"advertisingId";
+static NSString *const kJAnalyticsIsProduction =  @"isProduction";
 
 @implementation JAnalyticsPlugin
 
@@ -59,9 +62,27 @@ static NSString *const kJPushAppKey = @"APP_KEY";
   NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
   
   JANALYTICSLaunchConfig * config = [[JANALYTICSLaunchConfig alloc] init];
-  if (dict[kJPushAppKey]) {
-    config.appKey = dict[kJPushAppKey];
+  if (dict[kJAnalyticsAppKey]) {
+    config.appKey = dict[kJAnalyticsAppKey];
   }
+  
+  if (dict[kJAnalyticsChannel]) {
+    config.channel = dict[kJAnalyticsChannel];
+  }
+  
+  if (dict[kJAnalyticsAdvertisingId]) {
+    config.advertisingId = dict[kJAnalyticsAdvertisingId];
+  }
+  
+  if (dict[kJAnalyticsAdvertisingId]) {
+    config.advertisingId = dict[kJAnalyticsAdvertisingId];
+  }
+  
+  if (dict[kJAnalyticsIsProduction]) {
+    NSNumber *isProduction = dict[kJAnalyticsIsProduction];
+    config.isProduction = isProduction.boolValue;
+  }
+  
   [JANALYTICSService setupWithConfig:config];
 }
 
@@ -273,24 +294,6 @@ static NSString *const kJPushAppKey = @"APP_KEY";
   }
 }
 
-/**
- * 设置（绑定）用户信息
- * @param userInfo = {
- *  accountID: string,   账号ID、必填
- *  creationTime: number?,  //账号创建时间、时间戳
- *  sex: string?,  // 可以为 male/female/unknown
- *  birthdate: string?, // 出生年月，yyyyMMdd格式校验
- *  paid: string?, // 可以为 paid/unpaid/unknown
- *  phone: string?, // 手机号码
- *  email: string?, // 电子邮箱地址
- *  name: string?, // 用户名
- *  wechatID: string?, // 微信 ID
- *  qqID: string?, // QQ id
- *  weiboID: string? // 新浪微博 ID
- *
- *  extras: object? // 附加信息，如果以上字段无法满足你，可以使用附加字段来存储二外的信息
- * }
- */
 - (void)identifyAccount:(PGMethod*)command {
   NSDictionary *param = command.arguments[1];
   
