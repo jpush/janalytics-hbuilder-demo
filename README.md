@@ -4,7 +4,7 @@
 
 - 将 [JAnalytics_Plugin](./iOS/JAnalytics_Plugin) 文件夹拖到自己的工程里，拖拽的时候选择 create groups【注意：如果已经集成过 JPush 插件需要将 jcore-x.x.x.a 文件删除，不然会出现代码重复错误】。
 
-- 在 [JAnalytics_Plugin/JAnalyticsConfig.plist](./iOS/JAnalytics_Plugin/JAnalyticsConfig.plist) 中配置 APP_KEY。
+- 在 [JAnalytics_Plugin/JAnalyticsConfig.plist](./iOS/JAnalytics_Plugin/JAnalyticsConfig.plist) 中配置 APP_KEY、channel、advertisingId、isProduction。
 
 - 将 [janalytics.js](./janalytics.js) 复制到 Pandora/apps/HelloH5/www/js/ 目录中。
 
