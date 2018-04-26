@@ -20,27 +20,21 @@ document.addEventListener('plusready', function () {
       return B.callbackId(success, this.errorCallback)
     },
     errorCallback: function (errorMsg) {
-      console.log('Javascript callback error: ' + errorMsg)
+      alert('Javascript callback error: ' + JSON.stringify(errorMsg))
+      console.warn('Javascript callback error: ' + JSON.stringify(errorMsg))
     },
-    fireDocumentEvent: function (ename, jsonData) {
-      var event = document.createEvent('HTMLEvents')
-      event.initEvent(ename, true, true)
-      event.eventType = 'message'
 
-      jsonData = JSON.stringify(jsonData)
-      var data = JSON.parse(jsonData)
-      event.arguments = data
-      document.dispatchEvent(event)
-    },
     // Common method
 
-       /**
+   /**
      * 初始化插件
      */
     init: function () {
-      this.callNative('init', null, null)
-      
-  },
+      if (plus.os.name == 'Android') {
+        this.callNative('init', null, null)  
+      }
+      // iOS 不需要调用 setup 方法。
+    },
     
     /**
      * 开始记录页面停留
@@ -150,9 +144,52 @@ document.addEventListener('plusready', function () {
      */
     postEvent: function(event) {
       this.callNative('postEvent', [event], null)
+    },
+
+    /**
+     * 设置（绑定）用户信息
+     * @param userInfo = {
+     *  accountID: string,   账号ID、必填
+     *  creationTime: number?,  //账号创建时间、时间戳
+     *  sex: string?,  // 可以为 male/female/unknown
+     *  birthdate: string?, // 出生年月，yyyyMMdd格式校验
+     *  paid: string?, // 可以为 paid/unpaid/unknown
+     *  phone: string?, // 手机号码
+     *  email: string?, // 电子邮箱地址
+     *  name: string?, // 用户名
+     *  wechatID: string?, // 微信 ID
+     *  qqID: string?, // QQ id
+     *  weiboID: string? // 新浪微博 ID
+     * 
+     *  extras: object? // 附加信息，如果以上字段无法满足你，可以使用附加字段来存储二外的信息
+     * }
+     */
+    identifyAccount: function(userInfo, success) {
+      this.callNative('identifyAccount', [userInfo], success)
+    },
+    
+    /**
+     * 解绑当前的用户信息
+     */
+    detachAccount: function(success) {
+      this.callNative('detachAccount', null, success)
+    },
+    
+    /**
+     * 设置周期上报频率
+     * 默认为未设置频率，即时上报
+     * @param param = {
+     *  frequency: number
+     * }
+     * 周期上报频率单位秒
+     * 频率区间：0 或者 10 < frequency < 24*60*60
+     * 可以设置为0，即表示取消周期上报频率，改为即时上报
+     */
+    setFrequency: function(param) {
+      this.callNative('setFrequency', [param], null)
     }
+
   }
 
-  // JAnalyticsPlugin.init()
   window.plus.JAnalytics = JAnalyticsPlugin
 }, true)
