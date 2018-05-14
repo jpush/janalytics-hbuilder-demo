@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="MobileOptimized" content="320"/>
+  <title>JPush HBuilder Demo</title>
+  <link href="../css/jquery.mobile-1.1.1.css" rel="stylesheet"/>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/jquery.mobile-1.1.1.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/janalytics.js"></script>
+  <script type="text/javascript">
+
+  function init() {
+    plus.JAnalytics.init();
+  }
+
+  function onStartLogPageView() {
+    alert('onStartLogPageView' + JSON.stringify(plus.JAnalytics))
+    plus.JAnalytics.startLogPageView({pageName: "HBuilder page naem"})
+  }
+
+  function onStopLogPageView() {
+    plus.JAnalytics.stopLogPageView({pageName: "HBuilder page naem"})
+  }
+  
+  function onUploadLocation() {
+    plus.JAnalytics.uploadLocation({latitude: 0.4, longitude: 0.5})
+  }
+
+  function onLoginPress() {
+    var LoginEvent = {
+      type: 'login',
+      extra: {
+        userId: "user1"
+      },
+      method: "login",
+      success: true
+    };
+    plus.JAnalytics.postEvent(LoginEvent);
+  }
+
+  function onRegisterPress() {
+    var RegisterEvent = {
+      type: "register",
+      extra: {
+        userId: "user2"
+      },
+      method: "register",
+      success: true
+    };
+    plus.JAnalytics.postEvent(RegisterEvent);
+  }
+
+  function onPurchasePress() {
+    var PurchaseEvent = {
+      goodsId: '123',
+      type: 'purchase',
+      extra: {
+        userId: 'user2',
+        customKey1: 'custom var1',
+        customKey2: 'custom var2',
+        customKey3: 'custom var3',
+        customKey4: 'custom var4',
+        customKey5: 'custom var5',
+      },
+      goodsType: 'sports',
+      goodsName: 'basketball',
+      price: 300,
+      currency: 'CNY',
+      count: 1,
+      success: true
+    };
+    plus.JAnalytics.postEvent(PurchaseEvent);
+  }
+
+  function onCountPress() {
+    var CountEvent = {
+      id: 'count1',
+      extra: {
+        userId: 'user1'
+      },
+      type: 'count'
+    };
+    plus.JAnalytics.postEvent(CountEvent);
+  }
+
+  function onCalculatePress() {
+    var CalculateEvent = {
+      id: 'calculate1',
+      extra: {
+        userId: 'user1'
+      },
+      type: 'calculate',
+      value: 200
+    };
+    plus.JAnalytics.postEvent(CalculateEvent);
+  }
+
+  function onBrowsePress() {
+    var BrowseEvent = {
+      id: 'browse1',
+      name: 'shenzhen news',
+      type: 'browse',
+      extra: {
+        userId: 'user1'
+      },
+      contentType: 'news',
+      duration: 60
+    };
+    alert(JSON.stringify(plus.JAnalytics))
+    plus.JAnalytics.postEvent(BrowseEvent);
+  }
+
+    /**
+     * 设置（绑定）用户信息
+     * @param userInfo = {
+     *  accountID: string,   账号ID、必填
+     *  creationTime: number?,  //账号创建时间、时间戳
+     *  sex: string?,  // 可以为 male/female/unknown
+     *  birthdate: string?, // 出生年月，yyyyMMdd格式校验
+     *  paid: string?, // 可以为 paid/unpaid/unknown
+     *  phone: string?, // 手机号码
+     *  email: string?, // 电子邮箱地址
+     *  name: string?, // 用户名
+     *  wechatID: string?, // 微信 ID
+     *  qqID: string?, // QQ id
+     *  weiboID: string? // 新浪微博 ID
+     * 
+     *  extras: object? // 附加信息，如果以上字段无法满足你，可以使用附加字段来存储二外的信息
+     * }
+     */
+  function identifyAccount() {
+    plus.JAnalytics.identifyAccount({
+      accountID: 'huminios',
+      creationTime: 86400,
+      sex: 'female',
+      birthdate: '19950116',
+      paid: 'unpaid',
+      phone: '13612983333',
+      email: '13612983333@qq.com',
+      name: 'username_huminios',
+      wechatID: 'xxwechatID_huminios',
+      qqID: 'xxqqID_huminios',
+      weiboID: 'xxweboID_huminios',
+      extras: {
+        key1: 'value1',
+        key2: 5
+      }
+    }, function () {
+      // success callback
+      alert('success')
+    })
+  }
+
+  function detachAccount() {
+    plus.JAnalytics.detachAccount(function () {
+      // success callback
+      alert('success')
+    })
+  }
+  
+  function setFrequency() {
+    plus.JAnalytics.setFrequency({
+      frequency: 0
+    })
+  }
+  </script>
+  <style type="text/css">
+    .listItem {
+      background:#3e83d7;
+      width: 200px;
+      height: 30px;
+      align-content: center;
+      vertical-align: middle;
+      text-align: center;
+      color: #ffffff;
+      margin: 10px
+    }
+    .listItem :hover {
+      background:#2d67ad;
+      width: 200px;
+      height: 30px;
+      align-content: center;
+      vertical-align: middle;
+      text-align: center;
+      color: #ffffff;
+      margin: 10px
+    }
+  </style>
+</head>
+
+<body>
+<div data-role="page" id="page">
+  <div data-role="content">
+    <div class='listItem' onclick="init()">init</div>
+    <div class='listItem' onclick="onStartLogPageView()">onStartLogPageView</div>
+    <div class='listItem' onclick="onStopLogPageView()">onStopLogPageView</div>
+    <div class='listItem' onclick="onUploadLocation()">onUploadLocation</div>
+    <div class='listItem' onclick="onLoginPress()">onLoginPress</div>
+    <div class='listItem' onclick="onRegisterPress()">onRegisterPress</div>
+    <div class='listItem' onclick="onPurchasePress()">onPurchasePress</div>
+    <div class='listItem' onclick="onCountPress()">onCountPress</div>
+    <div class='listItem' onclick="onCalculatePress()">onCalculatePress</div>
+    <div class='listItem' onclick="onBrowsePress()">onBrowsePress</div>
+
+    <div class='listItem' onclick="identifyAccount()">identifyAccount</div>
+    <div class='listItem' onclick="detachAccount()">detachAccount</div>
+    <div class='listItem' onclick="setFrequency()">setFrequency</div>
+  </div>
+</div>
+</body>
+</html>
