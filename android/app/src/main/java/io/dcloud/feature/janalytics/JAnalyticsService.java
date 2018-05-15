@@ -125,7 +125,7 @@ public class JAnalyticsService extends StandardFeature {
             JAnalyticsInterface.identifyAccount(webView.getContext().getApplicationContext(), account, new AccountCallback() {
                 @Override
                 public void callback(int code, String msg) {
-                    Log.d("tag", "code = " + code  + " msg =" + msg);
+                    Log.d(TAG, "code = " + code  + " msg =" + msg);
                     JSUtil.execCallback(webView, callbackId, getMsgObject(code,msg), JSUtil.OK, false);
                 }
             });
@@ -140,7 +140,7 @@ public class JAnalyticsService extends StandardFeature {
         JAnalyticsInterface.detachAccount(webView.getContext().getApplicationContext(), new AccountCallback() {
             @Override
             public void callback(int code, String msg) {
-                Log.d("tag", "code = " + code  + " msg =" + msg);
+                Log.d(TAG, "code = " + code  + " msg =" + msg);
                 JSUtil.execCallback(webView, callbackId, getMsgObject(code,msg), JSUtil.OK, false);
             }
         });
